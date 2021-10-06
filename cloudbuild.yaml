@@ -30,16 +30,16 @@ steps:
     - --context=./
   waitFor:
     - version
-- name: 'gcr.io/$PROJECT_ID/${_IMAGE_NAME}'
-  id: test
-  entrypoint: bash
-  args:
-    - '-cx'
-    - |
-       echo "The test is successful or else..." \
-       || exit 1
-  waitFor:
-    - build
+# - name: 'gcr.io/$PROJECT_ID/${_IMAGE_NAME}'
+#   id: test
+#   entrypoint: bash
+#   args:
+#     - '-cx'
+#     - |
+#        echo "The test is successful or else..." \
+#        || exit 1
+#   waitFor:
+#     - build
 - name: gcr.io/google.com/cloudsdktool/cloud-sdk
   id: tag-image
   entrypoint: bash

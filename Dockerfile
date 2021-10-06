@@ -1,8 +1,8 @@
-FROM ubuntu
+FROM oraclelinux:7-slim AS base
 
-ENV SOMETHING=this
+RUN yum update -y && \
+    yum install -y oracle-database-preinstall-19c wget vim-minimal sudo java-11-openjdk-devel
 
-# Run the Update
-RUN apt-get update && apt-get upgrade -y
+USER oracle
 
 ENTRYPOINT ["bash"]
